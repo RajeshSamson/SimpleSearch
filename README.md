@@ -9,7 +9,7 @@ Download the latest version of Java and make sure that JAVA_HOME path is been se
 
 ### Building the Jar 
 
-This application uses Gradle build tool to compile and build the project.
+This application uses the Gradle build tool to compile and build the project.
 
 1. Clone this repository
 2. Run `$ ./gradlew jar` command.
@@ -17,10 +17,10 @@ This application uses Gradle build tool to compile and build the project.
 
 ### Running the Jar
 
-1. Open your favourite terminal depending on up the OS you are using.
-2. Navigate to the jar location which is created using above step in your terminal.
+1. Open your favourite terminal depending on the OS you are using.
+2. Navigate to the jar location which is created using the above step in your terminal.
 3. Run command `$ java -jar SimpleSearch-1.0-SNAPSHOT.jar <path to search>`
-4. For search the content provide the input test, and the command line tool should be returning the results.
+4. For search, the content provides the input test, and the command-line tool should be returning the results.
 
 ### For Example
 
