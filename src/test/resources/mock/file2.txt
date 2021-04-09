@@ -1,0 +1,1 @@
+Simple kotlin program to search the file content and display the search percentage
