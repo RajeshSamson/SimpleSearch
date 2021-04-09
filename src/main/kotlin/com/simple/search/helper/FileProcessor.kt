@@ -8,6 +8,9 @@ import java.util.*
 import java.util.concurrent.Callable
 import java.util.stream.Collectors
 
+/**
+ * This class process individual file and stores it's content.
+ */
 class FileProcessor(private val absolutePath: Path) : Callable<MutableMap<String, Rank>> {
 
     @Throws(Exception::class)

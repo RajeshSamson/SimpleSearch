@@ -12,8 +12,15 @@ import java.util.stream.IntStream
 import kotlin.math.roundToInt
 import kotlin.streams.toList
 
+/**
+ * This class servers a Service layer for performing various operations on the file content.
+ */
 class SearchService {
 
+    /**
+     * This functions takes the source directory and collects all the absolute path located
+     * source directory.
+     */
     fun findFilePaths(sourceDirectory: String?): List<Path>? {
         val configFilePath = FileSystems.getDefault().getPath(sourceDirectory!!)
         try {
@@ -28,10 +35,17 @@ class SearchService {
         return null
     }
 
+    /**
+     * This functions filters the text files
+     */
     private fun isTextFile(file: Path): Boolean {
         return file.toFile().isFile && file.toFile().name.endsWith(".txt")
     }
 
+    /**
+     * This functions generates the a Map which basically holds the filename and the
+     * associated content and dictionary.
+     */
     fun processFileContent(filePath: List<Path>): Map<String, Rank> {
         val dataContainer: MutableMap<String, Rank> = HashMap()
         val executorService = Executors.newFixedThreadPool(10)
@@ -49,6 +63,10 @@ class SearchService {
         return dataContainer
     }
 
+    /**
+     * This functions takes the search input an calculates percentage based on the number of words
+     * found in the file.
+     */
     fun calculateRank(
         fileWithContent: Map<String, Rank>,
         searchCriteria: List<String>
@@ -71,6 +89,9 @@ class SearchService {
         return calculateTo10Records(results)
     }
 
+    /**
+     * This function sort the calculated ranks.
+     */
     private fun calculateTo10Records(results: MutableMap<String, Int>): Map<String, Int> {
         val sortedResult = results.toList().sortedByDescending { (_, value) -> value }.toMap()
         if (sortedResult.size > 10) {
